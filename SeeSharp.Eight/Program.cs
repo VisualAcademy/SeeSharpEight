@@ -44,17 +44,20 @@ namespace SeeSharp.Eight
     // Abstract Class
     public abstract class Employee : Person, IEmployee
     {
-        public Employee(string name, decimal salary) : base(name) => Salary = salary;
+        public Employee(string name, decimal salary) 
+            : base(name) => Salary = salary;
         public decimal Salary { get; protected set; }
     }
 
     public class Professor : Employee, IEmployee
     {
         public string Topic { get; }
-        public Professor(string name, decimal salary, string topic) : base(name, salary) => Topic = topic;
+        public Professor(string name, decimal salary, string topic) 
+            : base(name, salary) => Topic = topic;
 
         // TODO: Deconstruct() Method => C# 7.0 User-Defined Types Deconstructing
-        public void Deconstruct(out string name, out string topic) => (name, topic) = (Name, Topic);
+        public void Deconstruct(out string name, out string topic) 
+            => (name, topic) = (Name, Topic);
 
         //[?] Indices and ranges
         //public string Id => $"{Name}[{Topic[0..3]}]";
@@ -63,8 +66,9 @@ namespace SeeSharp.Eight
 
     public class Administrator : Employee
     {
-        public string Department { get;  }
-        public Administrator(string name, decimal salary, string department) : base(name, salary) => Department = department;
+        public string Department { get; }
+        public Administrator(string name, decimal salary, string department) 
+            : base(name, salary) => Department = department;
     }
 
     public static class Service
@@ -122,17 +126,20 @@ namespace SeeSharp.Eight
             foreach (var employee in Service.GetEmployees())
             {
                 //[?] Pattern Matching: C# 7.0 Type Pattern
-                if (employee is Administrator administrator && administrator.Department is "ABC")
+                if (employee is Administrator administrator 
+                    && administrator.Department is "ABC")
                 {
                     Print($"Administrator: {administrator.Name}");
                 }
             }
             Print("========================================");
+
             //[B] Asynchronous
             await foreach (var employee in Service.GetEmployeesAsync())
             {
                 //[?] Pattern Matching: C# 8.0 Property Pattern, Var Pattern 
-                if (employee is Professor { Topic: "Computer Science", Name: var name } professor)
+                if (employee is Professor { 
+                    Topic: "Computer Science", Name: var name } professor)
                 {
                     Print($"Professor: {name} ({professor.Id})");
                 }
@@ -162,11 +169,9 @@ namespace SeeSharp.Eight
             {
                 return person switch
                 {
-                    Professor p when p.Salary > 1_000 => $"{p.Name} - {p.Topic} - Big Company",
-                    Professor p => @$"
-{p.Name} - {p.Topic}
-",
-                    Administrator administrator => $"{administrator.Name} - {administrator.Department}",
+                    Professor p when p.Salary > 1_000 => $"{p.Name}-{p.Topic}-Big",
+                    Professor p => @$"{p.Name} - {p.Topic}",
+                    Administrator a => $"{a.Name} - {a.Department}",
                     _ => $@"Who are you?"
                 };
             }
