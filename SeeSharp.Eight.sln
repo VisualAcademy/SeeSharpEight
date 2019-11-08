@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharp.Eight", "SeeSharp.Eight\SeeSharp.Eight.csproj", "{55DC91C4-6282-4587-8479-9CA8F0A476B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55DC91C4-6282-4587-8479-9CA8F0A476B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55DC91C4-6282-4587-8479-9CA8F0A476B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55DC91C4-6282-4587-8479-9CA8F0A476B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55DC91C4-6282-4587-8479-9CA8F0A476B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {261C0DEB-5B82-4094-A0D0-622A3A1BFD4B}
+	EndGlobalSection
+EndGlobal
